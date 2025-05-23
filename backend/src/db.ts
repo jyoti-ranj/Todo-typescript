@@ -1,11 +1,17 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb+srv://admin:po8swOE57abiOCt9@cluster0.799bz.mongodb.net/todoapp-ts");
+
+const uri = process.env.MONGO_URI;
+if (!uri) {
+  throw new Error("MONGO_URI is not defined in environment variables");
+}
+
+mongoose.connect(uri);
 
 const inputSchema = new mongoose.Schema({
-    title:String,
-    description:String,
-})
+  title: String,
+  description: String,
+});
+
 const Todo = mongoose.model("Todos", inputSchema);
 
-
-export default Todo
+export default Todo;

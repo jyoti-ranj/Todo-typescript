@@ -1,11 +1,14 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from "express";
 const app = express()
 app.use(express.json())
-const port = process.env.PORT||3000;
+const port = process.env.PORT || 3000;
 import todoSchema from "./types";
 import Todo from "./db";
 import cors from "cors"
 app.use(cors())
+
 
 enum ResponseStatus {
     success = 200,
