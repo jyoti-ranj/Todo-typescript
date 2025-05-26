@@ -1,8 +1,13 @@
 import zod from 'zod'
 
-const todoSchema = zod.object({
+export const todoSchema = zod.object({
     title: zod.string(),
     description : zod.string()
 })
 
-export default todoSchema
+export const updateTodo = zod.object({
+    id: zod.string()
+});
+export const deleteTodo = zod.object({
+    id: zod.string()
+})
